@@ -16,9 +16,9 @@ $ brew install helm
 
 Helm uses charts as the installable unit. A Chart is a package containing at least three things:
 
-- A `Chart.yaml`, which describes the chart
-- Templates, which Helm transforms into Kubernetes manifests
-- A `values.yaml` file, which defines and describes configurable parameters
+- A [`Chart.yaml`](https://docs.helm.sh/developing_charts#the-chart-yaml-file), which describes the chart
+- [Templates](https://docs.helm.sh/developing_charts#template-files), which Helm transforms into Kubernetes manifests
+- A [`values.yaml` file](https://docs.helm.sh/developing_charts#templates-and-values), which defines and describes configurable parameters
 
 These files are all bundled together into an archive that can easily be moved from one place to another. Charts are frequently stored in _chart repositories_ like https://hub.helm.sh. Helm repositories contain collections of charts that Helm can inspect, search, and install.
 
@@ -40,8 +40,8 @@ Our application will have five parts:
 
 In this guide, we will be building a chart based on a sample voting app. Here are the images you will need:
 
-    - redis:alpine
-    - microsoft/mssql-server-linux:latest
+  - `redis:alpine`
+  - `microsoft/mssql-server-linux:latest`
 
 **FIXME:** Need the images for these three:
 
@@ -53,7 +53,7 @@ In this guide, we will be building a chart based on a sample voting app. Here ar
 
 ## Creating a Chart
 
-To get started, we need to create a new directory. In this guide, we will be using the macOS commandline, though Windows works with very similar commands.
+To get started, we need to create a new directory. In this guide, we will be using linux filepath conventions, though Windows-style filepaths work with very similar commands.
 
 Start by running the Helm command to create a new basic chart:
 
@@ -63,8 +63,8 @@ $ helm create voter
 
 This will create a new directory named `voter`, and scaffold it out as follows:
 
-```
-voter
+```text
+voter/
 ├── Chart.yaml
 ├── charts
 ├── templates
@@ -180,5 +180,4 @@ Once you've done that, you will have a runnable chart that we can test.
 
 Helm templates are written in a language called `gotemplate`. Along with the basic functions provided by the core language, Helm also provides dozens of extra functions from the [Sprig library](https://github.com/Masterminds/sprig).
 
-The best reference for Helm chart syntax, style, and techniques can be found in the official [Helm chart guide](https://docs.helm.sh).
-
+The best reference for Helm chart syntax, style, and techniques can be found in the official [Helm chart guide](https://docs.helm.sh/developing_charts/#charts).
