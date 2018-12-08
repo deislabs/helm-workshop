@@ -4,12 +4,24 @@ The purpose of this workshop is to lean how to build new Helm 2 charts.
 
 ## Getting Familiar with Helm
 
-If this is your first time using Helm, start by reading through the [introduction to Helm](https://docs.helm.sh).
+If this is your first time using Helm, start by reading through the [introduction to Helm](https://docs.helm.sh). Alternative methods of installing Helm is also covered there.
 
-Installing Helm is also covered there. On Mac, the easiest way to install Helm is to use Homebrew:
+On Mac, the easiest way to install Helm is to use Homebrew:
 
 ```console
 $ brew install helm
+```
+
+On Ubuntu:
+
+```console
+$ sudo snap install helm --classic
+```
+
+And on Windows:
+
+```console
+$ choco install kubernetes-helm
 ```
 
 ## Charts
