@@ -6,6 +6,7 @@ The purpose of this workshop is to lean how to build new Helm 2 charts.
 This workshop is split into numbered sections outlined below:
 1. [Getting Started](1-getting-started/)
 2. [Charts](2-charts/)
+3. [Templating](3-templating/)
 
 ## Goal
 
@@ -35,9 +36,3 @@ In this guide, we will be building a chart based on a sample voting app. Here ar
     build: ./worker
     build: ./result-app/.
 ```
-
-## Adding the Back-End
-
-Helm templates are written in a language called `gotemplate`. Along with the basic functions provided by the core language, Helm also provides dozens of extra functions from the [Sprig library](https://github.com/Masterminds/sprig).
-
-The best reference for Helm chart syntax, style, and techniques can be found in the official [Helm chart guide](https://docs.helm.sh/developing_charts/#charts).
