@@ -100,3 +100,76 @@ Run `helm template ./voter` to view the chart fully rendered as YAML manifests. 
 Go through the rest of the templates and [The Chart Developer's Guide](https://docs.helm.sh/chart_template_guide/#the-chart-template-developer-s-guide). Experiment by adding and removing fields, or by modifying existing ones. Also try and change some values using the --set flag, like `helm template ./voter --set image.repository=foo`.
 
 Try and modify the Deployment object; what happens to the chart when you run `helm template ./voter` now?
+
+## Adding Templates for the Voter App Backend
+
+In the previous sections, we created set up the voter app frontend and the two databases. Now we can add the backend. This will make our chart fully functional.
+
+Copy this YAML file into your `templates/` directory, and then transform it into a template.
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: worker
+  namespace: vote
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+      - image: dockersamples/examplevotingapp_worker
+        name: worker
+```
+
+Remember to make sure that the name is unique for each installation.
+
+If you want to make a value configurable via the `values.yaml` file, simply set a default value in `values.yaml` and then access it here using `.Values.YOUR_NEW_NAME`.
+
+Once your template is done, re-install or upgrade your Helm chart. At this point you should be able to vote for your favorite animal!
+
+## Add the Results Viewer
+
+Ready for more? There's one last piece of this app: The results viewer. To add this part, we need to create
+two more template files:
+
+```yaml
+piVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: result
+  namespace: vote
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: result
+    spec:
+      containers:
+      - image: dockersamples/examplevotingapp_result:before
+name: result
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: result
+  namespace: vote
+spec:
+  type: NodePort
+  ports:
+  - name: "result-service"
+    port: 5001
+    targetPort: 80
+  selector:
+app: result
+```
+
+Make sure you configure the service for outside access the way you configured the voting app frontend. (Take a look at your `values.yaml` to make sure)
+
+Congratulations! You've just transformed a five-component multi-tier microservice buzzword-laden app into a Helm chart!
