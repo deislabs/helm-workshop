@@ -2,6 +2,12 @@
 
 Install helm on your machine and get familiar with the basic commands using the official [quickstart guide](https://docs.helm.sh/using_helm/#quickstart)
 
+## Prerequisites
+
+- A Kuberbetes cluster with kubectl configured to access it.
+
+## Installing the Helm Client
+
 On Mac, the easiest way to install Helm is to use Homebrew:
 
 ```console
@@ -20,9 +26,17 @@ And on Windows:
 $ choco install kubernetes-helm
 ```
 
-If this is your first time using Helm, start by reading through the [introduction to Helm](https://docs.helm.sh). Alternative methods of installing Helm is also covered there.
+> More installation methods are documented in [installing helm](https://docs.helm.sh/using_helm/#installing-helm)
 
-## Initializing and Using Helm
+## Initialize Helm and Install Tiller
+
+Once you have Helm ready, you can initialize the local environment and install Tiller into your Kubernetes cluster in one step.
+
+> If your cluster has Role-Based Access Control (RAC) enabled, you may want to [configure a service account and rules](https://docs.helm.sh/using_helm/#role-based-access-control) before proceeding.
+
+```console
+$ helm init
+```
 
 Helm will use whatever Kubernetes cluster your context is pointing to. Use `kubectl` to learn about your contexts:
 
@@ -31,13 +45,9 @@ $ kubectl config current-context
 docker-for-desktop
 ```
 
-Once Helm is installed, make sure to initialize it:
+## Using Helm
 
-```console
-$ helm init
-```
-
-If this is your first time using Helm, here are the critical commands:
+If this is your first time using Helm, here are the critical commands.
 
 - `helm help`: Show help. You can get more info on a command by doing `helm COMMAND --help`, such as `helm list --help`
 - `helm search STRING`: Find things to install
