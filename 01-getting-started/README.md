@@ -45,6 +45,20 @@ $ kubectl config current-context
 docker-for-desktop
 ```
 
+You can verify your setup by running the version command.
+
+```console
+$ helm version
+Client: &version.Version{SemVer:"v2.12.0", GitCommit:"d325d2a9c179b33af1a024cdb5a4472b6288016a", GitTreeState:"clean"}
+Server: &version.Version{SemVer:"v2.12.0", GitCommit:"d325d2a9c179b33af1a024cdb5a4472b6288016a", GitTreeState:"clean"}
+```
+
+Inspect the deployment if you get an error.
+
+```console
+$ kubectl -n kube-system describe deployment tiller-deploy
+```
+
 ## Using Helm
 
 If this is your first time using Helm, here are the critical commands.
