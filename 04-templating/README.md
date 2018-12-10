@@ -112,9 +112,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: worker
-  namespace: vote
+  labels:
+    app: worker
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: worker
   template:
     metadata:
       labels:
@@ -137,13 +141,17 @@ Ready for more? There's one last piece of this app: The results viewer. To add t
 two more template files:
 
 ```yaml
-piVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: result
-  namespace: vote
+  labels:
+    app: result
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: result
   template:
     metadata:
       labels:
@@ -151,6 +159,7 @@ spec:
     spec:
       containers:
       - image: dockersamples/examplevotingapp_result:before
+        name: result
 name: result
 
 ---
