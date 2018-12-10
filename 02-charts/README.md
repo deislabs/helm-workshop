@@ -125,11 +125,28 @@ The default Helm chart defines three Kubernetes resources:
 - A Service for routing traffic to that microservice
 - An Ingress that can optionally be turn on to allow external traffic to access your app
 
-It just so happens that we need this things for our example. So to get started, we'll just change the default values to make use of them.
+It just so happens that we need these things for our example. So to get started, we'll just change the default values to make use of them.
 
 In the `images` section, make the following changes:
 
-- Point `repository` to `technosophos/voting-app`
-- Set `tag` to `1.0.0`
+- Point `repository` to `dockersamples/examplevotingapp_vote`
+- Set `tag` to `before`
 
-Once you've done that, you will have a runnable chart that we can test.
+And also change one thing in `service`:
+
+- `port: 5000`
+
+(See the images list in the main [README](../README.md) for a quick description of each.)
+
+Once you've done that, you will have a runnable chart that we can test. We'll be able to install it, but not use it.
+
+> If you are on Azure, add `--set service.type=loadbalancer` to the end of the following command
+
+```console
+$ helm install -n voting-app ./voter
+# ... some info
+```
+
+Note that both a deployment and a service were created for you. If you are using Docker Desktop, you'll be able to see your new app by pointing a web browser at `localhost:5000`. For other clusters, flag down one of us and ask about how to configure it.
+
+At this point, your new app won't work, because it will be trying to contact a Redis database that is not there. In the next section, we'll look at adding some other parts.
