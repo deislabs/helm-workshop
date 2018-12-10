@@ -42,7 +42,7 @@ Run `helm dep up` to have Helm fetch those dependencies for you. When completed,
 
 If you now run `helm upgrade voting-app .` you can upgrade your chart and get the new redis and postgres databases installed.
 
-> Note: If you are on Azure, make sure to add the `--set service.type=loadbalancer` flag again
+> Note: If you are on Azure, make sure to add the `--set service.type=LoadBalancer` flag again
 
 ## Tip: Re-installing
 

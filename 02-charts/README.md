@@ -140,7 +140,7 @@ And also change one thing in `service`:
 
 Once you've done that, you will have a runnable chart that we can test. We'll be able to install it, but not use it.
 
-> If you are on Azure, add `--set service.type=loadbalancer` to the end of the following command
+> If you are on Azure, add `--set service.type=LoadBalancer` to the end of the following command
 
 ```console
 $ helm install -n voting-app ./voter
