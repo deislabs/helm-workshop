@@ -6,7 +6,7 @@ Helm uses charts as the installable unit. A Chart is a package containing at lea
 - [Templates](https://docs.helm.sh/developing_charts#template-files), which Helm transforms into Kubernetes manifests
 - A [`values.yaml` file](https://docs.helm.sh/developing_charts#templates-and-values), which defines and describes configurable parameters
 
-These files are all bundled together into an archive that can easily be moved from one place to another. Charts are frequently stored in _chart repositories_ like https://hub.helm.sh. Helm repositories contain collections of charts that Helm can inspect, search, and install.
+These files are all bundled together into an archive that can easily be moved from one place to another. Charts are frequently stored in _chart repositories_ like <https://hub.helm.sh>. Helm repositories contain collections of charts that Helm can inspect, search, and install.
 
 To get more in depth information overview about charts, see this [Intro to Charts](https://docs.helm.sh/developing_charts/#charts) documentation.
 
@@ -115,7 +115,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
 ```
 
 This default values file has a number of standard configurable parameters pre-defined. The parameters here are used by the files in `templates`.
@@ -134,4 +133,3 @@ In the `images` section, make the following changes:
 - Set `tag` to `1.0.0`
 
 Once you've done that, you will have a runnable chart that we can test.
-

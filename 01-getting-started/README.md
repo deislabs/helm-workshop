@@ -1,4 +1,4 @@
-## Getting Familiar with Helm
+# Getting Started with Helm
 
 Install helm on your machine and get familiar with the basic commands using the official [quickstart guide](https://docs.helm.sh/using_helm/#quickstart)
 
