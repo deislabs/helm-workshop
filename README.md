@@ -1,6 +1,6 @@
 # Helm Workshop: Microsoft Reactor, 2018
 
-The purpose of this workshop is to lean how to build new Helm 2 charts.
+The purpose of this workshop is to learn how to build new Helm 2 charts.
 
 ## Workshop Format
 
