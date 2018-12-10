@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "voter.name" . }}
+        app: {{ template "voter.name" . }}-backend
         release: {{ .Release.Name }}
     spec:
       containers:
