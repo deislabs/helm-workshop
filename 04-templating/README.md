@@ -160,7 +160,6 @@ spec:
       containers:
       - image: dockersamples/examplevotingapp_result:before
         name: result
-name: result
 
 ---
 
@@ -176,7 +175,7 @@ spec:
     port: 5001
     targetPort: 80
   selector:
-app: result
+    app: result
 ```
 
 Make sure you configure the service for outside access the way you configured the voting app frontend. (Take a look at your `values.yaml` to make sure)
