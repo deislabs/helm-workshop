@@ -3,10 +3,11 @@
 The purpose of this workshop is to lean how to build new Helm 2 charts.
 
 ## Workshop Format
+
 This workshop is split into numbered sections outlined below:
-1. [Getting Started](1-getting-started/)
-2. [Charts](2-charts/)
-3. [Templating](3-templating/)
+1. [Getting Started](01-getting-started/)
+2. [Charts](02-charts/)
+3. [Templating](03-templating/)
 
 ## Goal
 
@@ -26,8 +27,8 @@ Our application will have five parts:
 
 In this guide, we will be building a chart based on a sample voting app. Here are the images you will need:
 
-  - `redis:alpine` - The Redis server for a work queue
-  - `postgres:9.4` - The persistent data storage
-  - `dockersamples/examplevotingapp_result:before` - The admin viewer
-  - `dockersamples/examplevotingapp_vote:before` - The voting frontend
-  - `dockersamples/examplevotingapp_worker` - The queue worker
+- `redis:alpine` - The Redis server for a work queue
+- `postgres:9.4` - The persistent data storage
+- `dockersamples/examplevotingapp_result:before` - The admin viewer
+- `dockersamples/examplevotingapp_vote:before` - The voting frontend
+- `dockersamples/examplevotingapp_worker` - The queue worker
