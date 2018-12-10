@@ -26,7 +26,7 @@ And on Windows:
 $ choco install kubernetes-helm
 ```
 
-> More installation methods are documented in [installing helm](https://docs.helm.sh/using_helm/#installing-helm)
+> More installation methods documented in [installing helm](https://docs.helm.sh/using_helm/#installing-helm)
 
 ## Initialize Helm and Install Tiller
 
@@ -64,7 +64,7 @@ $ kubectl -n kube-system describe deployment tiller-deploy
 If this is your first time using Helm, here are the critical commands.
 
 - `helm help`: Show help. You can get more info on a command by doing `helm COMMAND --help`, such as `helm list --help`
-- `helm search STRING`: Find things to install
+- `helm search STRING`: Find charts to install
 - `helm install -n NAME CHART`: Install something (create a release). Example: `helm install -n my-test stable/wordpress`
 - `helm status NAME`: Get the status of a release
 - `helm delete NAME`: Delete the release. Example: `helm delete my-test`

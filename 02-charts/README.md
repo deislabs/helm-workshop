@@ -1,18 +1,18 @@
 # Charts
 
-Helm uses charts as the installable unit. A Chart is a package containing at least three things:
+Helm uses charts as the installable unit. A Chart is a package containing at least three components:
 
 - A [`Chart.yaml`](https://docs.helm.sh/developing_charts#the-chart-yaml-file), which describes the chart
 - [Templates](https://docs.helm.sh/developing_charts#template-files), which Helm transforms into Kubernetes manifests
 - A [`values.yaml` file](https://docs.helm.sh/developing_charts#templates-and-values), which defines and describes configurable parameters
 
-These files are all bundled together into an archive that can easily be moved from one place to another. Charts are frequently stored in _chart repositories_ like <https://hub.helm.sh>. Helm repositories contain collections of charts that Helm can inspect, search, and install.
+These files are all bundled together into an archive that can be moved from one place to another. Charts are frequently stored in _chart repositories_ like <https://hub.helm.sh>. Helm repositories contain collections of charts that Helm can inspect, search, and install.
 
 To get more in depth information overview about charts, see this [Intro to Charts](https://docs.helm.sh/developing_charts/#charts) documentation.
 
 ## Creating a Chart
 
-To get started, we need to create a new directory. In this guide, we will be using linux filepath conventions, though Windows-style filepaths work with very similar commands.
+To get started, we need to create a new directory. In this guide, we will be using linux filepath conventions, though Windows-style filepaths work with similar commands.
 
 Start by running the Helm command to create a new basic chart:
 
@@ -117,7 +117,7 @@ tolerations: []
 affinity: {}
 ```
 
-This default values file has a number of standard configurable parameters pre-defined. The parameters here are used by the files in `templates`.
+This default values file has standard configurable parameters pre-defined. These parameters are used by files in `templates`.
 
 The default Helm chart defines three Kubernetes resources:
 
@@ -125,7 +125,7 @@ The default Helm chart defines three Kubernetes resources:
 - A Service for routing traffic to that microservice
 - An Ingress that can optionally be turn on to allow external traffic to access your app
 
-It just so happens that we need these things for our example. So to get started, we'll just change the default values to make use of them.
+It just so happens that we need these things for our example. So to get started, we'll change the default values to make use of them.
 
 In the `images` section, make the following changes:
 
@@ -147,6 +147,6 @@ $ helm install -n voting-app ./voter
 # ... some info
 ```
 
-Note that both a deployment and a service were created for you. If you are using Docker Desktop, you'll be able to see your new app by pointing a web browser at `localhost:5000`. For other clusters, flag down one of us and ask about how to configure it.
+Note that both a deployment and a service are created for you. If you are using Docker Desktop, you'll be able to see your new app by pointing a web browser at `localhost:5000`. For other clusters, flag down one of us and ask about how to configure it.
 
 At this point, your new app won't work, because it will be trying to contact a Redis database that is not there. In the next section, we'll look at adding some other parts.

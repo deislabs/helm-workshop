@@ -36,7 +36,7 @@ Next, run `helm search postgresql` and repeat the above for Postgres. By the end
 
 ## Download the Dependencies
 
-Run `helm dep up` to have Helm fetch those dependencies for you. Why you are done with that command, you should be able to see two new directories inside of your chart's `charts` subdirectory.
+Run `helm dep up` to have Helm fetch those dependencies for you. When completed, you should be able to see two new directories inside of your chart's `charts` subdirectory.
 
 ## Upgrade Your Release
 
@@ -46,12 +46,10 @@ If you now run `helm upgrade voting-app .` you can upgrade your chart and get th
 
 ## Tip: Re-installing
 
-If you ever need to reinstall instead of upgrading, simply run the following:
+If you ever need to reinstall instead of upgrading, use the following:
 
 ```
 $ helm delete --purge voting-app
 ```
 
 Then you can re-run the installer freshly.
-
-
