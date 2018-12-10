@@ -99,16 +99,16 @@ Run `helm template ./voter` to view the chart fully rendered as YAML manifests. 
 
 Go through the rest of the templates and [The Chart Developer's Guide](https://docs.helm.sh/chart_template_guide/#the-chart-template-developer-s-guide). Experiment by adding and removing fields, or by modifying existing ones. Also try and change some values using the --set flag, like `helm template ./voter --set image.repository=foo`.
 
-Try and modify the Deployment object; what happens to the chart when you run `helm template ./voter` now?
+Try and modify the Deployment object. What happens to the chart when you run `helm template ./voter` now?
 
 ## Adding Templates for the Voter App Backend
 
-In the previous sections, we created set up the voter app frontend and the two databases. Now we can add the backend. This will make our chart fully functional.
+In the previous sections, we set up the voter app frontend and the two databases. Now we can add the backend. This will make our chart fully functional.
 
 Copy this YAML file into your `templates/` directory, and then transform it into a template.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: worker
@@ -137,7 +137,7 @@ Ready for more? There's one last piece of this app: The results viewer. To add t
 two more template files:
 
 ```yaml
-piVersion: extensions/v1beta1
+piVersion: apps/v1
 kind: Deployment
 metadata:
   name: result
