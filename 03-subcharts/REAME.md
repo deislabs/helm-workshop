@@ -30,7 +30,7 @@ dependencies:
 
 Note that the `repository` URL comes from running `helm repo list` and copying the URL for the `stable` repo, which is where the Redis chart lives.
 
-### Add PosgreSQL on your own
+### Add PostgreSQL on your own
 
 Next, run `helm search postgresql` and repeat the above for Postgres. By the end of that step, you should have two items in your `dependencies` array in `requirements.yaml`
 
