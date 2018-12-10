@@ -68,3 +68,6 @@ If this is your first time using Helm, here are the critical commands.
 - `helm install -n NAME CHART`: Install something (create a release). Example: `helm install -n my-test stable/wordpress`
 - `helm status NAME`: Get the status of a release
 - `helm delete NAME`: Delete the release. Example: `helm delete my-test`
+
+
+Up next: [Charts](../02-charts/).

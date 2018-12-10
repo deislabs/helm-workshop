@@ -150,3 +150,5 @@ $ helm install -n voting-app ./voter
 Note that both a deployment and a service are created for you. If you are using Docker Desktop, you'll be able to see your new app by pointing a web browser at `localhost:5000`. For other clusters, flag down one of us and ask about how to configure it.
 
 At this point, your new app won't work, because it will be trying to contact a Redis database that is not there. In the next section, we'll look at adding some other parts.
+
+Up next: [Subcharts](../03-subcharts/).

@@ -6,8 +6,9 @@ The purpose of this workshop is to learn how to build new Helm 2 charts.
 
 This workshop is split into numbered sections outlined below:
 1. [Getting Started](01-getting-started/)
-2. [Charts](02-charts/)
-3. [Templating](03-templating/)
+1. [Charts](02-charts/)
+1. [Subcharts](03-subcharts/)
+1. [Templating](04-templating/)
 
 ## Goal
 
@@ -18,10 +19,10 @@ We will start with a simple chart, and then add from there.
 Our application will have five parts:
 
 1. A front-end for users to vote
-2. A back-end that tallies votes
-3. An admin interface to see the results
-4. A Redis cache
-5. A PostgreSQL database
+1. A back-end that tallies votes
+1. An admin interface to see the results
+1. A Redis cache
+1. A PostgreSQL database
 
 ### Quick Reference
 
