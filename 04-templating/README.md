@@ -167,7 +167,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: result
-  namespace: vote
 spec:
   type: NodePort
   ports:
@@ -179,5 +178,53 @@ spec:
 ```
 
 Make sure you configure the service for outside access the way you configured the voting app frontend. (Take a look at your `values.yaml` to make sure)
+
+The voting app also requires a `db` and a `redis` service name, so let's create those:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  labels:
+    app: redis
+    chart: redis-3.7.6
+    release: {{ .Release.Name }}
+    heritage: "Tiller"
+  annotations:
+spec:
+  type: ClusterIP
+  ports:
+  - name: redis
+    port: 6379
+    targetPort: redis
+  selector:
+    app: redis
+    release: {{ .Release.Name }}
+    role: master
+```
+
+```yaml
+# Source: voter/charts/postgresql/templates/svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  labels:
+    app: db
+    chart: postgresql-2.4.0
+    release: {{ .Release.Name }}
+    heritage: "Tiller"
+spec:
+  type: ClusterIP
+  ports:
+  - name: postgresql
+    port:  5432
+    targetPort: postgresql
+  selector:
+    app: db
+    release: {{ .Release.Name }}
+    role: master
+```
 
 Congratulations! You've just transformed a five-component multi-tier microservice buzzword-laden app into a Helm chart!
