@@ -11,7 +11,7 @@ Install helm on your machine and get familiar with the basic commands using the 
 On Mac, the easiest way to install Helm is to use Homebrew:
 
 ```console
-$ brew install helm
+$ brew install kubernetes-helm
 ```
 
 On Ubuntu:
